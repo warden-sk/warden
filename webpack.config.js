@@ -8,7 +8,7 @@ module.exports = {
   entry: './compiled/index.js',
   mode: 'production',
   output: {
-    filename: 'index.webpack.js',
+    filename: 'index.compiled.js',
     path: path.resolve(__dirname, './compiled'),
   },
 };
