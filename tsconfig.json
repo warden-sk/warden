@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "target": "ES2020"
+  },
+  "include": ["./private/**/*"]
+}
