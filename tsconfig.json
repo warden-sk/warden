@@ -3,10 +3,9 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "strict": true,
-    "target": "ESNext"
-  },
-  "include": ["./private/**/*"]
+    "target": "ES2020"
+  }
 }

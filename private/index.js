@@ -1,6 +1,11 @@
+"use strict";
 /*
  * Copyright 2021 Marek Kobida
  */
-import React from 'react';
-import ReactDOM from 'react-dom';
-ReactDOM.render(React.createElement("h1", null, "warden.sk"), document.getElementById('index'));
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = __importDefault(require("react"));
+const react_dom_1 = __importDefault(require("react-dom"));
+react_dom_1.default.render(react_1.default.createElement("h1", null, "warden.sk"), document.getElementById('index'));
