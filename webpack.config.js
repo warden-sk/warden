@@ -5,10 +5,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './private/index.js',
+  entry: './compiled/index.js',
   mode: 'production',
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, './public'),
+    filename: 'index.webpack.js',
+    path: path.resolve(__dirname, './compiled'),
   },
 };

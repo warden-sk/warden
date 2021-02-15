@@ -5,6 +5,7 @@
     "jsx": "react",
     "module": "CommonJS",
     "moduleResolution": "Node",
+    "outDir": "./compiled",
     "strict": true,
     "target": "ES2020"
   }
