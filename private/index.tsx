@@ -2,6 +2,7 @@
  * Copyright 2021 Marek Kobida
  */
 
+import Link from '@warden-sk/router/components/Link';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Route from '@warden-sk/router/components/Route';
@@ -11,7 +12,7 @@ ReactDOM.render(
   <Router>
     <Route path="/">
       <h1>warden.sk</h1>
-      <a href="#/test">➡️</a>
+      <Link to="/test">➡️</Link>
     </Route>
     <Route path="/test">
       <h1>test</h1>
