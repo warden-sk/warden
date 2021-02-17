@@ -6,9 +6,15 @@ const path = require('path');
 
 module.exports = {
   entry: './compiled/index.js',
-  mode: 'production',
+  mode: 'development',
   output: {
     filename: 'index.compiled.js',
     path: path.resolve(__dirname, './compiled'),
+  },
+  resolve: {
+    alias: {
+      react: path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+    },
   },
 };
