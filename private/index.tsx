@@ -7,10 +7,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Route from '@warden-sk/react-router/Route';
 import Router from '@warden-sk/react-router/Router';
-import urlParameters from '@warden-sk/react-router/urlParameters';
+import currentUrlParameters from '@warden-sk/react-router/currentUrlParameters';
 
 function Test() {
-  const { id } = urlParameters();
+  const { id } = currentUrlParameters();
 
   return <h1>Test {id}</h1>;
 }
