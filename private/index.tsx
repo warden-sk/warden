@@ -17,12 +17,13 @@ function Test() {
 
 ReactDOM.render(
   <Router>
-    <Route path="/">
+    <Route url="/">
       <h1>warden.sk</h1>
       <Link to="/test/1">➡️</Link>
     </Route>
-    <Route path="/test/:id">
+    <Route url="/test/:id">
       <Test />
+      <Link to="/">⬅️️</Link>
     </Route>
   </Router>,
   document.getElementById('index')
