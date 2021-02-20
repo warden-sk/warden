@@ -9,22 +9,29 @@ import Route from '@warden-sk/react-router/Route';
 import Router from '@warden-sk/react-router/Router';
 import currentUrlParameters from '@warden-sk/react-router/currentUrlParameters';
 
-function Test() {
+function _2() {
   const { id } = currentUrlParameters();
 
-  return <h1>Test {id}</h1>;
+  return (
+    <>
+      <h1>Test {id}</h1>
+      <Link url="/">⬅️️</Link>
+    </>
+  );
 }
 
-ReactDOM.render(
-  <Router>
-    <Route url="/">
-      <h1>warden.sk</h1>
-      <Link to="/test/1">➡️</Link>
-    </Route>
-    <Route url="/test/:id">
-      <Test />
-      <Link to="/">⬅️️</Link>
-    </Route>
-  </Router>,
-  document.getElementById('index')
-);
+function _1() {
+  return (
+    <Router>
+      <Route url="/">
+        <h1>warden.sk</h1>
+        <Link url="/test/1">➡️</Link>
+      </Route>
+      <Route url="/test/:id">
+        <_2 />
+      </Route>
+    </Router>
+  );
+}
+
+ReactDOM.render(<_1 />, document.getElementById('index'));
