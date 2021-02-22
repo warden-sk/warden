@@ -13,10 +13,12 @@ function _2() {
   const { id } = currentUrlParameters();
 
   return (
-    <>
-      <h1>Test {id}</h1>
-      <Link url="/">⬅️️</Link>
-    </>
+    <div className="container">
+      <div>
+        <h1>{id}</h1>
+        <Link url="/">späť️️</Link>
+      </div>
+    </div>
   );
 }
 
@@ -24,8 +26,12 @@ function _1() {
   return (
     <Router>
       <Route url="/">
-        <h1>warden.sk</h1>
-        <Link url="/test/1">➡️</Link>
+        <div className="container">
+          <div>
+            <h1>warden.sk</h1>
+            <p>Čoskoro vám predstavím stránku v úplne novom kabáte.</p>
+          </div>
+        </div>
       </Route>
       <Route url="/test/:id">
         <_2 />
