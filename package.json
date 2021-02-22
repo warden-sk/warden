@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@warden-sk/react-router": "github:warden-sk/react-router#compiled",
+    "@warden-sk/react-router": "^1.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },
