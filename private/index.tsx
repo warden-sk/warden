@@ -16,13 +16,13 @@ function _1() {
           <p>
             Marek Kobida
             <br />
-            <a href="#">+421 910 123 678</a>
+            <a href="tel:+421910123678">+421 910 123 678</a>
             <br />
-            <a href="#">marek@warden.sk</a>
+            <a href="mailto:marek@warden.sk">marek@warden.sk</a>
           </p>
           <h3>Právnik</h3>
           <p>
-            <a href="#">lawyer@warden.sk</a>
+            <a href="mailto:lawyer@warden.sk">lawyer@warden.sk</a>
           </p>
         </div>
       </div>
