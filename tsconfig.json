@@ -7,6 +7,6 @@
     "moduleResolution": "Node",
     "outDir": "./compiled",
     "strict": true,
-    "target": "ES2020"
+    "target": "ES2015"
   }
 }
