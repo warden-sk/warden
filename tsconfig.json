@@ -3,10 +3,9 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "module": "CommonJS",
-    "moduleResolution": "Node",
+    "module": "ESNext",
     "outDir": "./compiled",
     "strict": true,
-    "target": "ES2015"
+    "target": "ESNext"
   }
 }
