@@ -24,6 +24,9 @@ function _1() {
           <p>
             <a href="mailto:lawyer@warden.sk">lawyer@warden.sk</a>
           </p>
+          <a className="discord" href="https://discord.gg/zH8GKfErWb" target="_blank">
+            pripojiť sa k sieti Discord
+          </a>
         </div>
       </div>
     </div>
