@@ -10,7 +10,7 @@ function _1() {
     <div className="container">
       <div>
         <h1>warden.sk</h1>
-        <p className="_1">Čoskoro vám predstavím stránku v úplne novom kabáte.</p>
+        <p className="_1">Čoskoro vám predstavíme stránku v úplne novom kabáte.</p>
         <div className="contact">
           <h2>Kontakt</h2>
           <p>
@@ -20,7 +20,7 @@ function _1() {
             <br />
             <a href="mailto:marek@warden.sk">marek@warden.sk</a>
           </p>
-          <h3>Právnik</h3>
+          <h3>Právny zástupca</h3>
           <p>
             <a href="mailto:lawyer@warden.sk">lawyer@warden.sk</a>
           </p>
