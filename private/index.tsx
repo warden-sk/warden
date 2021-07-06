@@ -29,7 +29,7 @@ function _1() {
             Slovenská sporiteľňa, a. s.
             <br />
             IBAN:{' '}
-            <span contentEditable onKeyDown={e => e.preventDefault()}>
+            <span contentEditable onKeyDown={e => (e.metaKey ? true : e.preventDefault())}>
               SK51 0900 0000 0050 7145 4547
             </span>
           </p>
