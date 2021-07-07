@@ -5,10 +5,10 @@
 const path = require('path');
 
 module.exports = {
-  entry: './compiled/index.js',
+  entry: './public/index.js',
   mode: 'production',
   output: {
     filename: 'index.compiled.js',
-    path: path.resolve(__dirname, './compiled'),
+    path: path.resolve(__dirname, './public'),
   },
 };
