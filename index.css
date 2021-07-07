@@ -1,6 +1,6 @@
 :root {
   --background-color: rgb(16, 16, 16);
-  --color: rgb(64, 255, 64);
+  --color: rgb(0, 255, 128);
 }
 
 * {
@@ -52,6 +52,18 @@ h3 {
 }
 
 ._1 {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem;
+}
+
+._2 {
+  background-color: rgb(32, 32, 32);
+  border-radius: 0.25rem;
+  padding: 2rem;
+}
+
+._3 {
   font-size: 1.25rem;
 }
 
@@ -71,15 +83,8 @@ h3 {
   min-height: 100vh;
 }
 
-.container > div {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
 .discord {
-  background-color: var(--background-color);
+  background-color: rgb(32, 32, 32);
   border-radius: 0.125rem;
   border: 0.125rem solid var(--color);
   color: var(--color);
