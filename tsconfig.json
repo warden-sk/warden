@@ -4,6 +4,7 @@
     "esModuleInterop": true,
     "jsx": "react",
     "module": "ESNext",
+    "moduleResolution": "node",
     "outDir": "./public",
     "strict": true,
     "target": "ESNext"
