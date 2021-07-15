@@ -29695,13 +29695,6 @@ function _1() {
                     React.createElement("a", { href: "mailto:marek@warden.sk" }, "marek@warden.sk")),
                 React.createElement("h3", null, "Pr\u00E1vny z\u00E1stupca"),
                 React.createElement("p", { className: "m-b-4" },
-                    React.createElement("a", { href: "mailto:lawyer@warden.sk" }, "lawyer@warden.sk")),
-                React.createElement("h3", null, "Bankov\u00E9 \u00FAdaje"),
-                React.createElement("p", null,
-                    "Slovensk\u00E1 sporite\u013E\u0148a, a. s.",
-                    React.createElement("br", null),
-                    "IBAN:",
-                    ' ',
-                    React.createElement("span", { contentEditable: true, onKeyDown: e => (e.metaKey ? true : e.preventDefault()) }, "SK51 0900 0000 0050 7145 4547"))))));
+                    React.createElement("a", { href: "mailto:lawyer@warden.sk" }, "lawyer@warden.sk"))))));
 }
 ReactDOM.render(React.createElement(_1, null), document.getElementById('index'));
