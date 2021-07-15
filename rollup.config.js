@@ -13,13 +13,13 @@ export default {
     file: './public/index.js',
   },
   plugins: [
-    commonjs(),
-    nodeResolve({
-      extensions: ['.js', '.ts', '.tsx'],
-    }),
+    typescript(),
     replace({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
-    typescript(),
+    nodeResolve({
+      extensions: ['.js', '.ts', '.tsx'],
+    }),
+    commonjs(),
   ],
 };
