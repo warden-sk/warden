@@ -18,12 +18,28 @@ function terser() {
   };
 }
 
+function test() {
+  return {
+    name: 'test',
+    transform(code, id) {
+      const [fileName, fileExtension] = id.match(/[^/]+\.([^.]+)$/);
+
+      if (fileExtension === 'css' || fileExtension === 'html') {
+        this.emitFile({ fileName, source: code, type: 'asset' });
+
+        return { code: `export default ${JSON.stringify(code)};` };
+      }
+    },
+  };
+}
+
 export default {
   input: './private/index.tsx',
   output: { file: './public/index.js' },
   plugins: [
-    terser(),
     typescript(),
+    test(),
+    terser(),
     replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
     nodeResolve({ extensions: ['.js', '.ts', '.tsx'] }),
     commonjs(),
