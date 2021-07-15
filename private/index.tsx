@@ -24,15 +24,6 @@ function _1() {
           <p className="m-b-4">
             <a href="mailto:lawyer@warden.sk">lawyer@warden.sk</a>
           </p>
-          <h3>Bankové údaje</h3>
-          <p>
-            Slovenská sporiteľňa, a. s.
-            <br />
-            IBAN:{' '}
-            <span contentEditable onKeyDown={e => (e.metaKey ? true : e.preventDefault())}>
-              SK51 0900 0000 0050 7145 4547
-            </span>
-          </p>
         </div>
       </div>
     </div>
