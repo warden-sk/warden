@@ -12,7 +12,7 @@ function terser() {
   return {
     name: 'terser',
     async renderChunk(code) {
-      const { code: c } = await minify(code);
+      const { code: c } = await minify(code, { format: { comments: false } });
       return c;
     },
   };
@@ -26,7 +26,7 @@ export default {
   plugins: [
     typescript(),
     replace({
-      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.NODE_ENV': JSON.stringify('production'),
     }),
     nodeResolve({
       extensions: ['.js', '.ts', '.tsx'],
