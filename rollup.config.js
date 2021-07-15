@@ -11,8 +11,8 @@ import typescript from '@rollup/plugin-typescript';
 function terser() {
   return {
     name: 'terser',
-    async renderChunk(_1) {
-      const { code } = await minify(_1, { format: { comments: !1 } });
+    async renderChunk(code) {
+      ({ code } = await minify(code, { format: { comments: !1 } }));
       return code;
     },
   };
