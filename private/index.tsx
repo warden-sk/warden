@@ -21,7 +21,7 @@ function _1() {
             <a href="mailto:marek@warden.sk">marek@warden.sk</a>
           </p>
           <h3>Právny zástupca</h3>
-          <p className="m-b-4">
+          <p>
             <a href="mailto:lawyer@warden.sk">lawyer@warden.sk</a>
           </p>
         </div>
