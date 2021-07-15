@@ -29694,7 +29694,7 @@ function _1() {
                     React.createElement("br", null),
                     React.createElement("a", { href: "mailto:marek@warden.sk" }, "marek@warden.sk")),
                 React.createElement("h3", null, "Pr\u00E1vny z\u00E1stupca"),
-                React.createElement("p", { className: "m-b-4" },
+                React.createElement("p", null,
                     React.createElement("a", { href: "mailto:lawyer@warden.sk" }, "lawyer@warden.sk"))))));
 }
 ReactDOM.render(React.createElement(_1, null), document.getElementById('index'));
