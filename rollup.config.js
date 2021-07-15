@@ -11,28 +11,21 @@ import typescript from '@rollup/plugin-typescript';
 function terser() {
   return {
     name: 'terser',
-    async renderChunk(code) {
-      const { code: c } = await minify(code, { format: { comments: false } });
-      return c;
+    async renderChunk(_1) {
+      const { code } = await minify(_1, { format: { comments: !1 } });
+      return code;
     },
   };
 }
 
 export default {
   input: './private/index.tsx',
-  output: {
-    file: './public/index.js',
-  },
+  output: { file: './public/index.js' },
   plugins: [
-    typescript(),
-    replace({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    nodeResolve({
-      extensions: ['.js', '.ts', '.tsx'],
-    }),
-    commonjs(),
-
     terser(),
+    typescript(),
+    replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+    nodeResolve({ extensions: ['.js', '.ts', '.tsx'] }),
+    commonjs(),
   ],
 };
