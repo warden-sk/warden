@@ -15,7 +15,7 @@
     "@warden-sk/eslint-config": "github:warden-sk/eslint-config",
     "eslint": "^7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "rollup": "^2.53.2",
+    "rollup": "^2.53.3",
     "terser": "^5.7.1",
     "typescript": "^4.3.5"
   }
