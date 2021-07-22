@@ -2,8 +2,8 @@
  * Copyright 2021 Marek Kobida
  */
 
-import './index.css';
-import './index.html';
+import '../private/index.css';
+import '../private/index.html';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
