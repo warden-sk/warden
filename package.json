@@ -11,9 +11,7 @@
     "@warden-sk/eslint-config": "github:warden-sk/eslint-config",
     "eslint": "^7.31.0",
     "eslint-plugin-prettier": "^3.4.0",
-    "terser": "^5.7.1",
     "typescript": "^4.3.5",
-    "webpack": "^5.47.1",
-    "webpack-cli": "^4.7.2"
+    "webpack": "^5.47.1"
   }
 }
