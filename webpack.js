@@ -27,7 +27,7 @@ webpack(
     output: {
       assetModuleFilename: '[name][ext]',
       filename: 'index.js',
-      path: path.resolve(__dirname, './public'),
+      path: path.resolve(__dirname, '../warden.public'),
     },
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
