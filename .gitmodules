@@ -1,4 +1,0 @@
-[submodule "public"]
-  branch = public
-  path = public
-  url = https://github.com/warden-sk/warden.git
