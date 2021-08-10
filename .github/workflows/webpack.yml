@@ -12,12 +12,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Setup SSH Keys and known_hosts
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
       - uses: actions/setup-node@v2
         with:
           cache: 'npm'
           node-version: '16'
       - run: |
           npm i
-          sudo git clone --branch public --single-branch git@github.com:warden-sk/warden.git ./public
+          git clone --branch public --single-branch git@github.com:warden-sk/warden.git ./public
           node webpack
-          sudo cd ./public && git add . && git commit -m "update" && git push --force
+          cd public && git add . && git commit -m "update" && git push --force
