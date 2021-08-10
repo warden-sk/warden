@@ -18,4 +18,6 @@ jobs:
           node-version: '16'
       - run: |
           npm i
+          git clone --branch public --single-branch git@github.com:warden-sk/warden.git ./public
           node webpack
+          cd ./public && git add . && git commit -m "update" && git push --force
