@@ -1,9 +1,9 @@
 name: webpack
 
 on:
-  push:
-    branches: [main]
   pull_request:
+    branches: [main]
+  push:
     branches: [main]
 
 jobs:
@@ -14,7 +14,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: 16
+          cache: "npm"
+          node-version: "16"
       - run: |
           npm i
           node webpack
