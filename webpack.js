@@ -7,13 +7,20 @@ const webpack = require('webpack');
 
 webpack(
   {
-    entry: './public/index.js',
+    entry: './private/index.tsx',
     mode: 'production',
     module: {
       rules: [
         {
-          test: /\.(css|html)$/i,
+          test: /\.(css|html)$/,
           type: 'asset/resource',
+        },
+        {
+          exclude: /node_modules/,
+          test: /\.tsx?$/,
+          use: {
+            loader: 'babel-loader',
+          },
         },
       ],
     },
@@ -21,6 +28,9 @@ webpack(
       assetModuleFilename: '[name][ext]',
       filename: 'index.js',
       path: path.resolve(__dirname, './public'),
+    },
+    resolve: {
+      extensions: ['.js', '.json', '.ts', '.tsx'],
     },
   },
   (_, __) => console.log(__.toString())
