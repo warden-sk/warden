@@ -1,4 +1,4 @@
-name: webpack
+name: w
 
 on:
   workflow_dispatch:
