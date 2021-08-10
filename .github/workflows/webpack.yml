@@ -3,14 +3,11 @@ name: webpack
 on: workflow_dispatch
 
 jobs:
-  build:
+  webpack:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          ssh-agent -a /tmp/ssh_agent.sock > /dev/null
-          ssh-add - <<< "${{ secrets.KEY }}"
       - uses: actions/setup-node@v2
         with:
           cache: 'npm'
