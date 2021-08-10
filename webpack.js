@@ -23,7 +23,5 @@ webpack(
       path: path.resolve(__dirname, './public'),
     },
   },
-  function () {
-    console.log(arguments[1].toString());
-  }
+  (_, __) => console.log(__.toString())
 );

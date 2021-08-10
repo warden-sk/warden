@@ -15,7 +15,7 @@ function _1() {
         <div className="_3 p-8">
           <h1 className="m-b-4">warden.sk</h1>
           <p className="m-b-4">Čoskoro vám predstavíme stránku v úplne novom kabáte.</p>
-          <h2>Kontakt</h2>
+          <h2 className="m-b-4">Kontakt</h2>
           <p className="m-b-4">
             Marek Kobida
             <br />
