@@ -1,6 +1,10 @@
 name: webpack
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        default: production
 
 jobs:
   webpack:
