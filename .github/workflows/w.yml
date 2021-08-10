@@ -5,6 +5,11 @@ on:
     inputs:
       version:
         default: production
+#on:
+#  workflow_dispatch:
+#    inputs:
+#      version:
+#        default: production
 
 jobs:
   webpack:
