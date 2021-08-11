@@ -1,3 +1,14 @@
+@keyframes test {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -47,6 +58,8 @@ h3 {
 }
 
 ._1 {
+  animation-duration: 1s;
+  animation-name: test;
   bottom: 0;
   left: 0;
   overflow: auto;
