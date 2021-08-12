@@ -11,11 +11,9 @@ class Html {
     compiler.hooks.emit.tap(Html.name, compilation => {
       const assets = compilation.getAssets();
 
-      const css = assets
-        .filter(asset => /\.css$/.test(asset.name))
-        .map(asset => `<link href="${asset.name}" rel="stylesheet" />`);
+      const css = this.test(assets, /\.css$/, '<link href="$" rel="stylesheet" />');
 
-      const js = assets.filter(asset => /\.js$/.test(asset.name)).map(asset => `<script src="${asset.name}"></script>`);
+      const js = this.test(assets, /\.js$/, '<script src="$"></script>');
 
       const html = `<!DOCTYPE html>
 <html lang="sk">
@@ -34,6 +32,11 @@ class Html {
 
       compilation.emitAsset('index.html', new RawSource(html));
     });
+  }
+
+  // ?
+  test(assets, _1, _2) {
+    return assets.filter(({ name }) => _1.test(name)).map(({ name }) => _2.replace(/\$/, name));
   }
 }
 
