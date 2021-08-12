@@ -15,7 +15,6 @@ const OUTPUT_FILE_PATH = './public';
 webpack(
   {
     entry: path.resolve(INPUT_FILE_PATH),
-    mode: 'production',
     module: {
       rules: [
         {

@@ -30,9 +30,11 @@ class Html {
 </html>
 `;
 
-      html = html.replace(/^\s+/gm, '').replace(/\s+$/gm, '').replace(/\n/gm, '');
+      if (process.env.NODE_ENV === 'production') {
+        html = html.replace(/^\s+/gm, '').replace(/\s+$/gm, '').replace(/\n/gm, '');
 
-      html = `<!-- Copyright 2021 Marek Kobida -->\n${html}\n`;
+        html = `<!-- Copyright 2021 Marek Kobida -->\n${html}\n`;
+      }
 
       compilation.emitAsset('index.html', new RawSource(html));
     });
