@@ -24,7 +24,7 @@ class Html {
     <title>${compilation.name}</title>
   </head>
   <body>
-    <div id="index"></div>
+    <div id="${compilation.hash}"></div>
     ${js.join('\n')}
   </body>
 </html>

@@ -32,4 +32,4 @@ function _1() {
   );
 }
 
-ReactDOM.render(<_1 />, document.getElementById('index'));
+ReactDOM.render(<_1 />, document.getElementById(__webpack_hash__));
