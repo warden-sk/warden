@@ -15,7 +15,7 @@ class Html {
 
       const js = this.test(assets, /\.js$/, '<script src="$"></script>');
 
-      const html = `<!DOCTYPE html>
+      let html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
     ${css.join('\n')}
@@ -29,6 +29,10 @@ class Html {
   </body>
 </html>
 `;
+
+      html = html.replace(/^\s+/gm, '').replace(/\s+$/gm, '').replace(/\n/gm, '');
+
+      html = `<!-- Copyright 2021 Marek Kobida -->\n${html}\n`;
 
       compilation.emitAsset('index.html', new RawSource(html));
     });
