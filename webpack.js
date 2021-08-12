@@ -6,9 +6,14 @@ const Html = require('./webpack/Html');
 const path = require('path');
 const webpack = require('webpack');
 
+const inputFilePath = './private/index.tsx';
+
+const outputFileName = 'index.js';
+const outputFilePath = './public';
+
 webpack(
   {
-    entry: path.resolve('./private/index.tsx'),
+    entry: path.resolve(inputFilePath),
     mode: 'production',
     module: {
       rules: [
@@ -23,15 +28,16 @@ webpack(
         },
       ],
     },
+    name: 'warden',
     output: {
       assetModuleFilename: '[name][ext]',
-      filename: 'index.js',
-      path: path.resolve(__dirname, './public'),
+      filename: outputFileName,
+      path: path.resolve(outputFilePath),
     },
     plugins: [new Html({ title: 'warden' })],
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
   },
-  (_, __) => console.log(_, __?.toString())
+  (_, __) => console.log(_, __?.toString({ colors: true }))
 );
