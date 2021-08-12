@@ -36,7 +36,7 @@ class Html {
 </html>
 `;
 
-      compilation.emitAsset('neviem.html', new RawSource(html));
+      compilation.emitAsset('index.html', new RawSource(html));
     });
   }
 }
