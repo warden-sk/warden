@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 webpack(
   {
-    entry: './private/index.tsx',
+    entry: path.resolve('./private/index.tsx'),
     mode: 'production',
     module: {
       rules: [
@@ -17,10 +17,8 @@ webpack(
         },
         {
           exclude: /node_modules/,
+          loader: path.resolve('./babel.js'),
           test: /\.tsx?$/,
-          use: {
-            loader: 'babel-loader',
-          },
         },
       ],
     },
