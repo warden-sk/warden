@@ -6,14 +6,15 @@ const Html = require('./webpack/Html');
 const path = require('path');
 const webpack = require('webpack');
 
-const inputFilePath = './private/index.tsx';
+const INPUT_FILE_PATH = './private/index.tsx';
 
-const outputFileName = 'index.js';
-const outputFilePath = './public';
+const OUTPUT_FILE_NAME = 'index.js';
+
+const OUTPUT_FILE_PATH = './public';
 
 webpack(
   {
-    entry: path.resolve(inputFilePath),
+    entry: path.resolve(INPUT_FILE_PATH),
     mode: 'production',
     module: {
       rules: [
@@ -31,10 +32,10 @@ webpack(
     name: 'warden',
     output: {
       assetModuleFilename: '[name][ext]',
-      filename: outputFileName,
-      path: path.resolve(outputFilePath),
+      filename: OUTPUT_FILE_NAME,
+      path: path.resolve(OUTPUT_FILE_PATH),
     },
-    plugins: [new Html({ title: 'warden' })],
+    plugins: [new Html()],
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
