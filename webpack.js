@@ -2,6 +2,7 @@
  * Copyright 2021 Marek Kobida
  */
 
+const Html = require('./webpack/Html');
 const path = require('path');
 const webpack = require('webpack');
 
@@ -17,7 +18,7 @@ webpack(
         },
         {
           exclude: /node_modules/,
-          loader: path.resolve('./babel.js'),
+          loader: path.resolve('./webpack/babel.js'),
           test: /\.tsx?$/,
         },
       ],
@@ -27,9 +28,10 @@ webpack(
       filename: 'index.js',
       path: path.resolve(__dirname, './public'),
     },
+    plugins: [new Html({ title: 'warden' })],
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
   },
-  (_, __) => console.log(__.toString())
+  (_, __) => console.log(_, __?.toString())
 );
