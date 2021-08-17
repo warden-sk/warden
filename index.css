@@ -1,4 +1,4 @@
-@keyframes test {
+@keyframes _1 {
   0% {
     opacity: 0;
     transform: translateY(-2rem);
@@ -59,7 +59,7 @@ h3 {
 
 ._1 {
   animation-duration: 1s;
-  animation-name: test;
+  animation-name: _1;
   bottom: 0;
   left: 0;
   overflow: auto;
