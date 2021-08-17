@@ -10,5 +10,5 @@ module.exports = function (code) {
     presets: ['@babel/preset-react', '@babel/preset-typescript'],
   }));
 
-  this.callback(null, code);
+  return code;
 };

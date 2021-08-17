@@ -11,11 +11,11 @@ class Html {
     compiler.hooks.emit.tap(Html.name, compilation => {
       const assets = compilation.getAssets();
 
-      const css = this.test(assets, /\.css$/, '<link href="$" rel="stylesheet" />');
+      const css = this.assetsToHTML(assets, /\.css$/, name => `<link href="${name}" rel="stylesheet" />`);
 
-      const js = this.test(assets, /\.js$/, '<script src="$"></script>');
+      const js = this.assetsToHTML(assets, /\.js$/, name => `<script src="${name}"></script>`);
 
-      let html = `<!DOCTYPE html>
+      const html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
     ${css.join('\n')}
@@ -30,19 +30,12 @@ class Html {
 </html>
 `;
 
-      if (process.env.NODE_ENV === 'production') {
-        html = html.replace(/^\s+/gm, '').replace(/\s+$/gm, '').replace(/\n/gm, '');
-
-        html = `<!-- Copyright 2021 Marek Kobida -->\n${html}\n`;
-      }
-
       compilation.emitAsset('index.html', new RawSource(html));
     });
   }
 
-  // ?
-  test(assets, _1, _2) {
-    return assets.filter(({ name }) => _1.test(name)).map(({ name }) => _2.replace(/\$/, name));
+  assetsToHTML(assets, pattern, template) {
+    return assets.filter(({ name }) => pattern.test(name)).map(({ name }) => template(name));
   }
 }
 

@@ -14,7 +14,7 @@ const OUTPUT_FILE_PATH = './public';
 
 webpack(
   {
-    entry: path.resolve(INPUT_FILE_PATH),
+    entry: INPUT_FILE_PATH,
     mode: 'production',
     module: {
       rules: [
@@ -24,7 +24,7 @@ webpack(
         },
         {
           exclude: /node_modules/,
-          loader: path.resolve('./webpack/babel.js'),
+          loader: './webpack/babel',
           test: /\.tsx?$/,
         },
       ],
