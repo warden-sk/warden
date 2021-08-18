@@ -3,9 +3,10 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "react",
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "strict": true,
     "target": "ESNext"
-  }
+  },
+  "include": ["./webpack.ts", "./webpack/**/*"]
 }

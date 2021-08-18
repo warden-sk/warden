@@ -1,28 +1,25 @@
+"use strict";
 /*
  * Copyright 2021 Marek Kobida
  */
-
-const webpack = require('webpack');
-
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const webpack_1 = __importDefault(require("webpack"));
 class Html {
-  constructor(assets = []) {
-    // from ['a'] to { name: 'a' }
-    this.assets = assets.map(name => ({ name }));
-  }
-
-  apply(compiler) {
-    const { RawSource } = webpack.sources;
-
-    compiler.hooks.emit.tap(Html.name, compilation => {
-      const assets = compilation.getAssets();
-
-      assets.push(...this.assets);
-
-      const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
-
-      const js = this.assetsToHTML(assets, /\.js$/, ({ name }) => `<script src="${name}"></script>`);
-
-      const html = `<!DOCTYPE html>
+    constructor(assets = []) {
+        // from ['a'] to { name: 'a' }
+        this.assets = assets.map(name => ({ name }));
+    }
+    apply(compiler) {
+        const { RawSource } = webpack_1.default.sources;
+        compiler.hooks.emit.tap(Html.name, compilation => {
+            const assets = compilation.getAssets();
+            assets.push(...this.assets);
+            const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
+            const js = this.assetsToHTML(assets, /\.js$/, ({ name }) => `<script src="${name}"></script>`);
+            const html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
     ${css.join('\n    ')}
@@ -36,14 +33,11 @@ class Html {
   </body>
 </html>
 `;
-
-      compilation.emitAsset('index.html', new RawSource(html));
-    });
-  }
-
-  assetsToHTML(assets, pattern, template) {
-    return assets.filter(({ name }) => pattern.test(new URL(name, 'file://').pathname)).map(template);
-  }
+            compilation.emitAsset('index.html', new RawSource(html));
+        });
+    }
+    assetsToHTML(assets, pattern, template) {
+        return assets.filter(({ name }) => pattern.test(new URL(name, 'file://').pathname)).map(template);
+    }
 }
-
-module.exports = Html;
+exports.default = Html;
