@@ -24,7 +24,7 @@ module.exports = function ({ assets, name }) {
         },
         {
           exclude: /node_modules/,
-          loader: './webpack/babel',
+          loader: './babel',
           test: /\.tsx?$/,
         },
       ],
