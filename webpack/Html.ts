@@ -4,8 +4,16 @@
 
 import webpack from 'webpack';
 
+interface Asset {
+  name: string;
+}
+
+interface Template {
+  (asset: Asset): string;
+}
+
 class Html {
-  assets: { name: string }[];
+  assets: Asset[];
 
   constructor(assets: string[] = []) {
     // from ['a'] to { name: 'a' }
@@ -41,7 +49,7 @@ class Html {
     });
   }
 
-  assetsToHTML(assets: { name: string }[], pattern: RegExp, template: (asset: { name: string }) => string): string[] {
+  assetsToHTML(assets: Asset[], pattern: RegExp, template: Template): string[] {
     return assets.filter(({ name }) => pattern.test(name)).map(template);
   }
 }

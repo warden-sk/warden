@@ -5,15 +5,9 @@
 import Html from './Html';
 import path from 'path';
 
-const INPUT_FILE_PATH = './private/index.tsx';
-
-const OUTPUT_FILE_NAME = 'index.js';
-
-const OUTPUT_FILE_PATH = './public';
-
 export default function ({ assets, name }: { assets?: string[]; name: string }) {
   return {
-    entry: INPUT_FILE_PATH,
+    entry: './private/index.tsx',
     module: {
       rules: [
         {
@@ -30,8 +24,8 @@ export default function ({ assets, name }: { assets?: string[]; name: string }) 
     name,
     output: {
       assetModuleFilename: '[name][ext]',
-      filename: OUTPUT_FILE_NAME,
-      path: path.resolve(OUTPUT_FILE_PATH),
+      filename: 'index.js',
+      path: path.resolve('./public'),
       publicPath: '',
     },
     plugins: [new Html(assets)],
