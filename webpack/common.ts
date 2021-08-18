@@ -4,8 +4,9 @@
 
 import Html from './Html';
 import path from 'path';
+import webpack from 'webpack';
 
-export default function ({ assets, name }: { assets?: string[]; name: string }) {
+export default function ({ assets, name }: { assets?: string[]; name: string }): webpack.Configuration {
   return {
     entry: './private/index.tsx',
     module: {
@@ -16,7 +17,7 @@ export default function ({ assets, name }: { assets?: string[]; name: string }) 
         },
         {
           exclude: /node_modules/,
-          loader: path.resolve(__dirname, './babel'),
+          loader: path.resolve(__dirname, './babel.ts'),
           test: /\.tsx?$/,
         },
       ],
