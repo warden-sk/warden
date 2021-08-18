@@ -6,7 +6,8 @@ const webpack = require('webpack');
 
 class Html {
   constructor(assets = []) {
-    this.assets = assets;
+    // from ['a'] to { name: 'a' }
+    this.assets = assets.map(name => ({ name }));
   }
 
   apply(compiler) {
@@ -15,7 +16,7 @@ class Html {
     compiler.hooks.emit.tap(Html.name, compilation => {
       const assets = compilation.getAssets();
 
-      assets.push(this.assets);
+      assets.push(...this.assets);
 
       const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
 
