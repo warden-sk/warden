@@ -32,6 +32,7 @@ export default function ({ assets, name }: { assets?: string[]; name: string }) 
       assetModuleFilename: '[name][ext]',
       filename: OUTPUT_FILE_NAME,
       path: path.resolve(OUTPUT_FILE_PATH),
+      publicPath: '',
     },
     plugins: [new Html(assets)],
     resolve: {

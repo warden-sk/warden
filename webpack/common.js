@@ -32,6 +32,7 @@ function default_1({ assets, name }) {
             assetModuleFilename: '[name][ext]',
             filename: OUTPUT_FILE_NAME,
             path: path_1.default.resolve(OUTPUT_FILE_PATH),
+            publicPath: '',
         },
         plugins: [new Html_1.default(assets)],
         resolve: {

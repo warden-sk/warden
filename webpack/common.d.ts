@@ -22,6 +22,7 @@ export default function ({ assets, name }: {
         assetModuleFilename: string;
         filename: string;
         path: string;
+        publicPath: string;
     };
     plugins: Html[];
     resolve: {

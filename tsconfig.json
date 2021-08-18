@@ -9,5 +9,5 @@
     "strict": true,
     "target": "ESNext"
   },
-  "exclude": ["./private"]
+  "exclude": ["node_modules", "private"]
 }
