@@ -8,7 +8,7 @@ const webpack = require('webpack');
 
 const INPUT_FILE_PATH = './private/index.tsx';
 
-const OUTPUT_FILE_NAME = 'index.js?[contenthash]';
+const OUTPUT_FILE_NAME = 'index.js';
 
 const OUTPUT_FILE_PATH = './public';
 
@@ -30,7 +30,7 @@ const compiler = webpack({
   },
   name: 'warden',
   output: {
-    assetModuleFilename: '[name][ext]?[contenthash]',
+    assetModuleFilename: '[name][ext]',
     filename: OUTPUT_FILE_NAME,
     path: path.resolve(OUTPUT_FILE_PATH),
   },

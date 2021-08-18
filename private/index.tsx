@@ -33,3 +33,5 @@ function _1() {
 }
 
 ReactDOM.render(<_1 />, document.getElementById('index'));
+
+export default _1;
