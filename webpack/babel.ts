@@ -4,10 +4,10 @@
 
 // @ts-ignore
 import * as babel from '@babel/core';
+import webpack from 'webpack';
 
-export default function (code: string): string {
+export default function (this: webpack.LoaderContext<{}>, code: string): string {
   ({ code } = babel.transformSync(code, {
-    // @ts-ignore
     filename: this.resourcePath,
     presets: ['@babel/preset-react', '@babel/preset-typescript'],
   }));
