@@ -11,21 +11,21 @@ class Html {
     compiler.hooks.emit.tap(Html.name, compilation => {
       const assets = compilation.getAssets();
 
-      const css = this.assetsToHTML(assets, /\.css$/, name => `<link href="${name}" rel="stylesheet" />`);
+      const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
 
-      const js = this.assetsToHTML(assets, /\.js$/, name => `<script src="${name}"></script>`);
+      const js = this.assetsToHTML(assets, /\.js$/, ({ name }) => `<script src="${name}"></script>`);
 
       const html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
-    ${css.join('\n')}
+    ${css.join('\n    ')}
     <meta charset="utf-8" />
-    <meta content="initial-scale=1, width=device-width" name="viewport" />
+    <meta content="width=device-width" name="viewport" />
     <title>${compilation.name}</title>
   </head>
   <body>
     <div id="index"></div>
-    ${js.join('\n')}
+    ${js.join('\n    ')}
   </body>
 </html>
 `;
@@ -35,7 +35,7 @@ class Html {
   }
 
   assetsToHTML(assets, pattern, template) {
-    return assets.filter(({ name }) => pattern.test(name)).map(({ name }) => template(name));
+    return assets.filter(({ name }) => pattern.test(new URL(name, 'file://').pathname)).map(template);
   }
 }
 
