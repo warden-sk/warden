@@ -11,10 +11,9 @@ const OUTPUT_FILE_NAME = 'index.js';
 
 const OUTPUT_FILE_PATH = './public';
 
-export default function ({ assets, name }) {
+export default function ({ assets, name }: { assets?: string[]; name: string }) {
   return {
     entry: INPUT_FILE_PATH,
-    mode: 'production',
     module: {
       rules: [
         {

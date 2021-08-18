@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    "declaration": true,
     "esModuleInterop": true,
     "jsx": "react",
     "module": "CommonJS",
@@ -8,5 +9,5 @@
     "strict": true,
     "target": "ESNext"
   },
-  "include": ["./webpack.ts", "./webpack/**/*"]
+  "exclude": ["./private"]
 }

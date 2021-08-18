@@ -5,18 +5,18 @@
 import webpack from 'webpack';
 
 class Html {
-  constructor(assets = []) {
+  assets: { name: string }[];
+
+  constructor(assets: string[] = []) {
     // from ['a'] to { name: 'a' }
     this.assets = assets.map(name => ({ name }));
   }
 
-  apply(compiler) {
+  apply(compiler: webpack.Compiler) {
     const { RawSource } = webpack.sources;
 
     compiler.hooks.emit.tap(Html.name, compilation => {
-      const assets = compilation.getAssets();
-
-      assets.push(...this.assets);
+      const assets = [...compilation.getAssets(), ...this.assets];
 
       const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
 
@@ -41,8 +41,8 @@ class Html {
     });
   }
 
-  assetsToHTML(assets, pattern, template) {
-    return assets.filter(({ name }) => pattern.test(new URL(name, 'file://').pathname)).map(template);
+  assetsToHTML(assets: { name: string }[], pattern: RegExp, template: (asset: { name: string }) => string): string[] {
+    return assets.filter(({ name }) => pattern.test(name)).map(template);
   }
 }
 

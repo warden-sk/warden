@@ -14,7 +14,6 @@ const OUTPUT_FILE_PATH = './public';
 function default_1({ assets, name }) {
     return {
         entry: INPUT_FILE_PATH,
-        mode: 'production',
         module: {
             rules: [
                 {
