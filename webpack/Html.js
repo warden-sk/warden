@@ -5,11 +5,17 @@
 const webpack = require('webpack');
 
 class Html {
+  constructor(assets = []) {
+    this.assets = assets;
+  }
+
   apply(compiler) {
     const { RawSource } = webpack.sources;
 
     compiler.hooks.emit.tap(Html.name, compilation => {
       const assets = compilation.getAssets();
+
+      assets.push(this.assets);
 
       const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
 
