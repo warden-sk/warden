@@ -24,7 +24,7 @@ module.exports = function ({ assets, name }) {
         },
         {
           exclude: /node_modules/,
-          loader: './babel',
+          loader: path.resolve(__dirname, './babel'),
           test: /\.tsx?$/,
         },
       ],
