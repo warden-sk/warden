@@ -24,7 +24,7 @@ class Html {
     const { RawSource } = webpack.sources;
 
     compiler.hooks.emit.tap(Html.name, compilation => {
-      const assets = [...compilation.getAssets(), ...this.assets];
+      const assets = [...this.assets, ...compilation.getAssets()];
 
       const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
 
