@@ -15,16 +15,12 @@ function _1() {
           <h1 className="m-b-4">warden.sk</h1>
           <p className="m-b-4">Čoskoro vám predstavíme stránku v úplne novom kabáte.</p>
           <h2 className="m-b-4">Kontakt</h2>
-          <p className="m-b-4">
+          <p>
             Marek Kobida
             <br />
             <a href="tel:+421910123678">+421 910 123 678</a>
             <br />
             <a href="mailto:marek@warden.sk">marek@warden.sk</a>
-          </p>
-          <h3>Právny zástupca</h3>
-          <p>
-            <a href="mailto:lawyer@warden.sk">lawyer@warden.sk</a>
           </p>
         </div>
       </div>

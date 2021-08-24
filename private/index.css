@@ -95,17 +95,6 @@ h3 {
   padding: 0.75rem 1.25rem;
 }
 
-.buttons {
-  display: flex;
-  margin-left: -0.25rem;
-  margin-right: -0.25rem;
-}
-
-.buttons > .button {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 .m-b-4 {
   margin-bottom: 1rem;
 }
