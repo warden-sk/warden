@@ -27,15 +27,13 @@ body {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-weight: 300;
 }
 
 a,
 h1,
 h2,
-h3,
 p {
   margin-bottom: 0;
   margin-top: 0;
@@ -51,10 +49,6 @@ h1 {
 
 h2 {
   font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.5rem;
 }
 
 ._1 {
@@ -93,17 +87,6 @@ h3 {
   font-weight: inherit;
   line-height: inherit;
   padding: 0.75rem 1.25rem;
-}
-
-.buttons {
-  display: flex;
-  margin-left: -0.25rem;
-  margin-right: -0.25rem;
-}
-
-.buttons > .button {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
 }
 
 .m-b-4 {
