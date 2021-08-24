@@ -32,8 +32,6 @@ function _1() {
   );
 }
 
-if (typeof window !== 'undefined') {
-  ReactDOM.render(<_1 />, document.getElementById('index'));
-}
+ReactDOM.render(<_1 />, document.getElementById('index'));
 
 export default _1;
