@@ -26,6 +26,8 @@ function common({ assets, name }: { assets?: string[]; name: string }): webpack.
     name,
     output: {
       filename: 'index.js',
+      globalObject: 'this',
+      libraryTarget: 'umd',
       path: path.resolve('./public'),
       publicPath: '',
     },

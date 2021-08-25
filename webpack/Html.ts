@@ -2,6 +2,9 @@
  * Copyright 2021 Marek Kobida
  */
 
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import vm from 'vm';
 import webpack from 'webpack';
 
 interface Asset {
@@ -10,6 +13,26 @@ interface Asset {
 
 interface AssetHTMLTemplate {
   (asset: Asset): string;
+}
+
+function test(code: Buffer | string | undefined): string {
+  if (code) {
+    const context = { exports: exports, module: { exports } };
+
+    const script = new vm.Script(code.toString());
+
+    script.runInNewContext(context);
+
+    const Component = context.module.exports.default;
+
+    if (React.isValidElement(Component)) {
+      return ReactDOMServer.renderToString(Component);
+    }
+
+    throw new Error('The component is not valid.');
+  }
+
+  throw new Error('The code is not valid.');
 }
 
 class HTML {
@@ -24,6 +47,9 @@ class HTML {
     const { RawSource } = webpack.sources;
 
     compiler.hooks.emit.tap(HTML.name, compilation => {
+      const _ = compilation.getAsset('index.js');
+      const __ = test(_?.source.source());
+
       const assets = this.assets.concat(compilation.getAssets());
 
       const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
@@ -38,7 +64,9 @@ class HTML {
     <title>${compilation.name}</title>
   </head>
   <body>
-    <div id="index"></div>
+    <div id="index">
+      ${__}
+    </div>
     ${js.join('\n    ')}
   </body>
 </html>
