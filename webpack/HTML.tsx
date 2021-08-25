@@ -25,7 +25,11 @@ function test(code: Buffer | string | undefined): string {
 
     const Component = context.module.exports.default;
 
-    return ReactDOMServer.renderToString(<Component />);
+    try {
+      return ReactDOMServer.renderToString(<Component />);
+    } catch (error) {
+      return '';
+    }
   }
 
   throw new Error('The code is not valid.');
