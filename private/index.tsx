@@ -32,4 +32,4 @@ if (typeof window !== 'undefined') {
   ReactDOM.render(<_1 />, document.getElementById('index'));
 }
 
-export default <_1 />;
+export default _1;

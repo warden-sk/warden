@@ -25,11 +25,7 @@ function test(code: Buffer | string | undefined): string {
 
     const Component = context.module.exports.default;
 
-    if (React.isValidElement(Component)) {
-      return ReactDOMServer.renderToString(Component);
-    }
-
-    throw new Error('The component is not valid.');
+    return ReactDOMServer.renderToString(<Component />);
   }
 
   throw new Error('The code is not valid.');
