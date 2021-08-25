@@ -8,6 +8,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 function _1() {
+  const [_, __] = React.useState(1);
+
+  console.log(_);
+
   return (
     <div className="_1">
       <div className="_2 p-2">

@@ -28,6 +28,7 @@ function test(code: Buffer | string | undefined): string {
     try {
       return ReactDOMServer.renderToString(<Component />);
     } catch (error) {
+      console.log(error);
       return '';
     }
   }
