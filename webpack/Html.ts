@@ -12,7 +12,7 @@ interface AssetHTMLTemplate {
   (asset: Asset): string;
 }
 
-class Html {
+class HTML {
   assets: Asset[];
 
   constructor(assets: string[] = []) {
@@ -23,7 +23,7 @@ class Html {
   apply(compiler: webpack.Compiler) {
     const { RawSource } = webpack.sources;
 
-    compiler.hooks.emit.tap(Html.name, compilation => {
+    compiler.hooks.emit.tap(HTML.name, compilation => {
       const assets = this.assets.concat(compilation.getAssets());
 
       const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
@@ -53,4 +53,4 @@ class Html {
   }
 }
 
-export default Html;
+export default HTML;

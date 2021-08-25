@@ -2,7 +2,7 @@
  * Copyright 2021 Marek Kobida
  */
 
-import Html from './Html';
+import HTML from './HTML';
 import path from 'path';
 import webpack from 'webpack';
 
@@ -29,7 +29,7 @@ function common({ assets, name }: { assets?: string[]; name: string }): webpack.
       path: path.resolve('./public'),
       publicPath: '',
     },
-    plugins: [new Html(assets)],
+    plugins: [new HTML(assets)],
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
