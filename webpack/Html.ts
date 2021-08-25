@@ -8,7 +8,7 @@ interface Asset {
   name: string;
 }
 
-interface Template {
+interface AssetHTMLTemplate {
   (asset: Asset): string;
 }
 
@@ -24,10 +24,9 @@ class Html {
     const { RawSource } = webpack.sources;
 
     compiler.hooks.emit.tap(Html.name, compilation => {
-      const assets = [...this.assets, ...compilation.getAssets()];
+      const assets = this.assets.concat(compilation.getAssets());
 
       const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
-
       const js = this.assetsToHTML(assets, /\.js$/, ({ name }) => `<script src="${name}"></script>`);
 
       const html = `<!DOCTYPE html>
@@ -49,7 +48,7 @@ class Html {
     });
   }
 
-  assetsToHTML(assets: Asset[], pattern: RegExp, template: Template): string[] {
+  assetsToHTML(assets: Asset[], pattern: RegExp, template: AssetHTMLTemplate): string[] {
     return assets.filter(({ name }) => pattern.test(name)).map(template);
   }
 }

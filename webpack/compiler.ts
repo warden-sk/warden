@@ -6,7 +6,7 @@
 import * as babel from '@babel/core';
 import webpack from 'webpack';
 
-export default function (this: webpack.LoaderContext<{}>, code: string): string {
+function compiler(this: webpack.LoaderContext<{}>, code: string): string {
   ({ code } = babel.transformSync(code, {
     filename: this.resourcePath,
     presets: ['@babel/preset-react', '@babel/preset-typescript'],
@@ -14,3 +14,5 @@ export default function (this: webpack.LoaderContext<{}>, code: string): string 
 
   return code;
 }
+
+export default compiler;
