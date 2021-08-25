@@ -8,11 +8,8 @@ import webpack from 'webpack';
 
 export const FILES = new Map<string, string>();
 
-function compileTS(code: string, filePath: string): string {
-  ({ code } = babel.transformSync(code, {
-    filename: filePath,
-    presets: ['@babel/preset-react', '@babel/preset-typescript'],
-  }));
+function compileTypeScript(code: string, filePath: string): string {
+  ({ code } = babel.transformSync(code, { filename: filePath }));
 
   return code;
 }
@@ -27,7 +24,7 @@ function compiler(this: webpack.LoaderContext<{}>, code: string): string {
   }
 
   if (/\.tsx?$/.test(filePath)) {
-    return compileTS(code, filePath);
+    return compileTypeScript(code, filePath);
   }
 
   return code;
