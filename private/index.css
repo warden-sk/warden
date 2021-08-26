@@ -24,17 +24,13 @@ body {
   margin: 0;
 }
 
-h1,
-h2 {
-  font-weight: 300;
-}
-
-a,
-h1,
-h2,
-p {
-  margin-bottom: 0;
-  margin-top: 0;
+button {
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
 }
 
 a {
@@ -47,6 +43,19 @@ h1 {
 
 h2 {
   font-size: 2rem;
+}
+
+a,
+h1,
+h2,
+p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-weight: 300;
 }
 
 ._1 {
@@ -77,30 +86,6 @@ h2 {
 
 .button {
   background-color: rgb(0, 255, 128);
-  border: 0;
   border-radius: 2rem;
   color: rgb(16, 16, 16);
-  cursor: pointer;
-  display: block;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  padding: 0.75rem 1.25rem;
-}
-
-.m-b-4 {
-  margin-bottom: 1rem;
-}
-
-.m-b-8 {
-  margin-bottom: 2rem;
-}
-
-.p-2 {
-  padding: 0.5rem;
-}
-
-.p-8 {
-  padding: 2rem;
 }

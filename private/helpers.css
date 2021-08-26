@@ -1,0 +1,25 @@
+.m-b-4 {
+  margin-bottom: 1rem;
+}
+
+.m-b-8 {
+  margin-bottom: 2rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.p-x-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.p-y-3 {
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+}
