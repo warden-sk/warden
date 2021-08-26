@@ -8,8 +8,8 @@ import webpack from 'webpack';
 const compiler = webpack(
   common({
     assets: [
-      'https://unpkg.com/react@17/umd/react.production.min.js',
       'https://unpkg.com/react-dom@17/umd/react-dom.production.min.js',
+      'https://unpkg.com/react@17/umd/react.production.min.js',
     ],
     name: 'warden',
   })
