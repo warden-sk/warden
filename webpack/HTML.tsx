@@ -17,23 +17,23 @@ interface AssetHTMLTemplate {
 
 function test(code: Buffer | string | undefined): string {
   if (code) {
-    const context = { exports: exports, module: { exports } };
+    const context = { exports: exports, module: { exports }, require };
 
     const script = new vm.Script(code.toString());
 
     script.runInNewContext(context);
 
-    const Component = context.module.exports.default;
+    const _1 = context.module.exports.default;
 
     try {
-      return ReactDOMServer.renderToString(<Component />);
+      return ReactDOMServer.renderToString(<_1 />);
     } catch (error) {
       console.log(error);
       return '';
     }
   }
 
-  throw new Error('The code is not valid.');
+  return '';
 }
 
 class HTML {
@@ -51,12 +51,13 @@ class HTML {
       const _ = compilation.getAsset('index.js');
       const __ = test(_?.source.source());
 
-      const assets = this.assets.concat(compilation.getAssets());
+      if (__) {
+        const assets = this.assets.concat(compilation.getAssets());
 
-      const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
-      const js = this.assetsToHTML(assets, /\.js$/, ({ name }) => `<script src="${name}"></script>`);
+        const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
+        const js = this.assetsToHTML(assets, /\.js$/, ({ name }) => `<script src="${name}"></script>`);
 
-      const html = `<!DOCTYPE html>
+        const html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
     ${css.join('\n    ')}
@@ -71,9 +72,10 @@ class HTML {
     ${js.join('\n    ')}
   </body>
 </html>
-`;
+  `;
 
-      compilation.emitAsset('index.html', new RawSource(html));
+        compilation.emitAsset('index.html', new RawSource(html));
+      }
     });
   }
 
