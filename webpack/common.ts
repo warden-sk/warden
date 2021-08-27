@@ -7,7 +7,15 @@ import HTML from './HTML';
 import path from 'path';
 import webpack from 'webpack';
 
-function common({ assets, name }: { assets?: string[]; name: string }): webpack.Configuration {
+function common({
+  assets,
+  html,
+  name,
+}: {
+  assets?: string[];
+  html: (compilation: webpack.Compilation) => string;
+  name: string;
+}): webpack.Configuration {
   return {
     entry: './private/index.tsx',
     externals: {
@@ -43,7 +51,7 @@ function common({ assets, name }: { assets?: string[]; name: string }): webpack.
       path: path.resolve('./public'),
       publicPath: '',
     },
-    plugins: [new CSS(), new HTML(assets)],
+    plugins: [new CSS(), new HTML({ assets, html })],
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
