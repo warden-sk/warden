@@ -18,18 +18,6 @@ function common({
 }): webpack.Configuration {
   return {
     entry: './private/index.tsx',
-    externals: {
-      react: {
-        commonjs: 'react',
-        commonjs2: 'react',
-        root: 'React',
-      },
-      'react-dom': {
-        commonjs: 'react-dom',
-        commonjs2: 'react-dom',
-        root: 'ReactDOM',
-      },
-    },
     module: {
       rules: [
         {

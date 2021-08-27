@@ -7,6 +7,7 @@ import './index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactDOMServer from 'react-dom/server';
 
 function _1() {
   return (
@@ -30,7 +31,7 @@ function _1() {
 }
 
 if (typeof window !== 'undefined') {
-  ReactDOM.hydrate(<_1 />, document.getElementById('index'));
+  ReactDOM.render(<_1 />, document.getElementById('index'));
 }
 
-export default _1;
+export default ReactDOMServer.renderToString(<_1 />);
