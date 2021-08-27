@@ -8,7 +8,7 @@ import webpack from 'webpack';
 
 const compiler = webpack(
   common({
-    html: compilation => `<div id="index">${compileReact(compilation)}</div>`,
+    htmlTemplate: compilation => `<div id="index">${compileReact(compilation)}</div>`,
     name: 'warden',
   })
 );

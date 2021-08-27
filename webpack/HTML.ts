@@ -13,17 +13,19 @@ interface AssetHTMLTemplate {
 }
 
 class HTML {
-  assets: Asset[] = [];
+  assets: Asset[];
+  htmlTemplate: (compilation: webpack.Compilation) => string;
 
-  html: (compilation: webpack.Compilation) => string;
-
-  constructor({ assets, html }: { assets?: string[]; html: (compilation: webpack.Compilation) => string }) {
-    if (assets) {
-      // from ['a'] to { name: 'a' }
-      this.assets = assets.map(name => ({ name }));
-    }
-
-    this.html = html;
+  constructor({
+    assets = [],
+    htmlTemplate,
+  }: {
+    assets?: string[];
+    htmlTemplate: (compilation: webpack.Compilation) => string;
+  }) {
+    // from ['a'] to { name: 'a' }
+    this.assets = assets.map(name => ({ name }));
+    this.htmlTemplate = htmlTemplate;
   }
 
   apply(compiler: webpack.Compiler) {
@@ -44,7 +46,7 @@ class HTML {
     <title>${compilation.name}</title>
   </head>
   <body>
-    ${this.html(compilation)}
+    ${this.htmlTemplate(compilation)}
     ${js.join('\n    ')}
   </body>
 </html>

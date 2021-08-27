@@ -9,11 +9,11 @@ import webpack from 'webpack';
 
 function common({
   assets,
-  html,
+  htmlTemplate,
   name,
 }: {
   assets?: string[];
-  html: (compilation: webpack.Compilation) => string;
+  htmlTemplate: (compilation: webpack.Compilation) => string;
   name: string;
 }): webpack.Configuration {
   return {
@@ -39,7 +39,7 @@ function common({
       path: path.resolve('./public'),
       publicPath: '',
     },
-    plugins: [new CSS(), new HTML({ assets, html })],
+    plugins: [new CSS(), new HTML({ assets, htmlTemplate })],
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
