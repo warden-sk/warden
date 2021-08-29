@@ -11,11 +11,7 @@ function compileReact(compilation: webpack.Compilation): string {
   if (asset) {
     const code = asset.source.source();
 
-    const context = {
-      console,
-      exports,
-      module: { exports },
-    };
+    const context = { console, exports, module: { exports } };
 
     const script = new vm.Script(code.toString());
 
