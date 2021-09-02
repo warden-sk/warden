@@ -2,7 +2,8 @@
  * Copyright 2021 Marek Kobida
  */
 
-import './helpers.css';
+import '@warden-sk/design/public/index.css';
+
 import './index.css';
 
 import React from 'react';
