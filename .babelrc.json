@@ -1,4 +1,4 @@
 {
-  "plugins": ["@warden-sk/design/private"],
+  "plugins": ["@warden-sk"],
   "presets": ["@babel/preset-react", "@babel/preset-typescript"]
 }
