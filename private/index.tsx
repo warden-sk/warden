@@ -12,7 +12,7 @@ import ReactDOMServer from 'react-dom/server';
 
 function _1() {
   return (
-    <div className="_1">
+    <div alignItems="center" className="_1" justifyContent="center">
       <div className="_2" p="2">
         <div className="_3" p="8">
           <h1 mB="4">warden.sk</h1>

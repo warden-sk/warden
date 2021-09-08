@@ -70,9 +70,7 @@ h2 {
 }
 
 ._2 {
-  align-items: center;
   display: flex;
-  justify-content: center;
   min-height: 100%;
   min-width: 100%;
 }
