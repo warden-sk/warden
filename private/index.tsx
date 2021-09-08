@@ -12,8 +12,8 @@ import ReactDOMServer from 'react-dom/server';
 
 function _1() {
   return (
-    <div alignItems="center" className="_1" justifyContent="center">
-      <div className="_2" p="2">
+    <div className="_1">
+      <div alignItems="center" className="_2" justifyContent="center" p="2">
         <div className="_3" p="8">
           <h1 mB="4">warden.sk</h1>
           <p mB="4">Čoskoro vám predstavíme stránku v úplne novom kabáte.</p>
