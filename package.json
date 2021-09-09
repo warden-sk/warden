@@ -9,11 +9,10 @@
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "@typescript-eslint/parser": "^4.31.0",
     "@warden-sk/babel-plugin": "file:../design/packages/babel-plugin",
-    "@warden-sk/design": "file:../design/packages/design",
     "@warden-sk/eslint-config": "github:warden-sk/eslint-config",
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.3.2",
+    "prettier": "^2.4.0",
     "typescript": "^4.4.2",
     "webpack": "^5.52.0"
   },
