@@ -2,7 +2,6 @@
  * Copyright 2021 Marek Kobida
  */
 
-import './design.css';
 import './index.css';
 
 import React from 'react';
