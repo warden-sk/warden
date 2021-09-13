@@ -12,6 +12,6 @@ function _1() {
   return <div />;
 }
 
-typeof window !== 'undefined' && ReactDOM.render(<_1 />, document.getElementById('index'));
+typeof window !== 'undefined' && ReactDOM.hydrate(<_1 />, document.getElementById('index'));
 
 export default ReactDOMServer.renderToString(<_1 />);
