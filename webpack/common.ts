@@ -33,6 +33,7 @@ function common({
     },
     name,
     output: {
+      clean: true,
       filename: 'index.js',
       globalObject: 'this',
       libraryTarget: 'umd',
