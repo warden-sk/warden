@@ -18,10 +18,10 @@ class HTML {
 
   constructor({
     assets = [],
-    htmlTemplate,
+    htmlTemplate = () => '',
   }: {
     assets?: string[];
-    htmlTemplate: (compilation: webpack.Compilation) => string;
+    htmlTemplate?: (compilation: webpack.Compilation) => string;
   }) {
     // from ['a'] to { name: 'a' }
     this.assets = assets.map(name => ({ name }));

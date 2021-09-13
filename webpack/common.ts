@@ -13,7 +13,7 @@ function common({
   name,
 }: {
   assets?: string[];
-  htmlTemplate: (compilation: webpack.Compilation) => string;
+  htmlTemplate?: (compilation: webpack.Compilation) => string;
   name: string;
 }): webpack.Configuration {
   return {
