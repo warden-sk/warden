@@ -5,7 +5,6 @@
     "jsx": "react",
     "module": "CommonJS",
     "strict": true,
-    "target": "ESNext",
-    "typeRoots": ["./node_modules/@types", "./node_modules/@warden-sk"]
+    "target": "ESNext"
   }
 }
