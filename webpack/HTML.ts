@@ -34,8 +34,8 @@ class HTML {
     compiler.hooks.emit.tap(HTML.name, compilation => {
       const assets = this.assets.concat(compilation.getAssets());
 
-      const css = this.assetsToHTML(assets, /\.css$/, ({ name }) => `<link href="${name}" rel="stylesheet" />`);
-      const js = this.assetsToHTML(assets, /\.js$/, ({ name }) => `<script src="${name}"></script>`);
+      const css = this.assetsToHTML(assets, /\.css$/, asset => `<link href="${this.t(asset)}" rel="stylesheet" />`);
+      const js = this.assetsToHTML(assets, /\.js$/, asset => `<script src="${this.t(asset)}"></script>`);
 
       const html = `<!DOCTYPE html>
 <html lang="sk">
@@ -60,6 +60,10 @@ class HTML {
 
   assetsToHTML(assets: Asset[], pattern: RegExp, template: AssetHTMLTemplate): string[] {
     return assets.filter(({ name }) => pattern.test(name)).map(template);
+  }
+
+  t(asset: Asset) {
+    return `${asset.name}?${+new Date()}`;
   }
 }
 
