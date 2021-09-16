@@ -40,12 +40,14 @@ class HTML {
       const html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
+    <base href="/" />
     ${css.join('\n    ')}
     <meta charset="utf-8" />
-    <meta content="width=device-width" name="viewport" />
+    <meta content="width=device-width" name="viewport" />    
+    <meta content="yes" name="apple-mobile-web-app-capable" />
     <title>${compilation.name}</title>
   </head>
-  <body>
+  <body> 
     ${this.htmlTemplate(compilation)}
     ${js.join('\n    ')}
   </body>
