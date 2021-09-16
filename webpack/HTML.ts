@@ -15,17 +15,21 @@ interface AssetHTMLTemplate {
 class HTML {
   assets: Asset[];
   htmlTemplate: (compilation: webpack.Compilation) => string;
+  publicPath: string;
 
   constructor({
     assets = [],
     htmlTemplate = () => '',
+    publicPath,
   }: {
     assets?: string[];
     htmlTemplate?: (compilation: webpack.Compilation) => string;
+    publicPath: string;
   }) {
     // from ['a'] to { name: 'a' }
     this.assets = assets.map(name => ({ name }));
     this.htmlTemplate = htmlTemplate;
+    this.publicPath = publicPath;
   }
 
   apply(compiler: webpack.Compiler) {
@@ -40,7 +44,6 @@ class HTML {
       const html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
-    <base href="/" />
     ${css.join('\n    ')}
     <meta charset="utf-8" />
     <meta content="width=device-width" name="viewport" />    
@@ -62,8 +65,12 @@ class HTML {
     return assets.filter(({ name }) => pattern.test(name)).map(template);
   }
 
-  t(asset: Asset) {
-    return `${asset.name}?${+new Date()}`;
+  t(asset: Asset): string {
+    const url = new URL(asset.name, this.publicPath);
+
+    url.searchParams.set('date', (+new Date()).toString());
+
+    return url.toString();
   }
 }
 

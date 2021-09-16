@@ -10,6 +10,7 @@ const compiler = webpack(
   common({
     htmlTemplate: compilation => `<div id="index">${compileReact('index.js', compilation)}</div>`,
     name: 'warden',
+    publicPath: 'https://warden.sk/',
   })
 );
 

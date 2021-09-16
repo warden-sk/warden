@@ -11,10 +11,12 @@ function common({
   assets,
   htmlTemplate,
   name,
+  publicPath,
 }: {
   assets?: string[];
   htmlTemplate?: (compilation: webpack.Compilation) => string;
   name: string;
+  publicPath: string;
 }): webpack.Configuration {
   return {
     entry: './private/index.tsx',
@@ -38,9 +40,9 @@ function common({
       globalObject: 'this',
       libraryTarget: 'umd',
       path: path.resolve('./public'),
-      publicPath: '',
+      publicPath,
     },
-    plugins: [new CSS(), new HTML({ assets, htmlTemplate })],
+    plugins: [new CSS(), new HTML({ assets, htmlTemplate, publicPath })],
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
