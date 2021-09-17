@@ -12,14 +12,17 @@ function common({
   htmlTemplate,
   name,
   publicPath,
+  version,
 }: {
   assets?: string[];
   htmlTemplate?: (compilation: webpack.Compilation) => string;
   name: string;
   publicPath: string;
+  version: 'development' | 'production';
 }): webpack.Configuration {
   return {
     entry: './private/index.tsx',
+    mode: version,
     module: {
       rules: [
         {
