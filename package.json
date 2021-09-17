@@ -3,7 +3,7 @@
     "@babel/core": "^7.15.5",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
-    "@types/node": "^16.9.1",
+    "@types/node": "^16.9.2",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
     "@types/warden-sk__design": "github:warden-sk/types-design",
