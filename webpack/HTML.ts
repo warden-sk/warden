@@ -66,7 +66,9 @@ class HTML {
   }
 
   t(asset: Asset): string {
-    const url = new URL(`${this.publicPath}/${asset.name}`);
+    const url: URL = /^[^:\/\/]+:\/\//.test(asset.name)
+      ? new URL(asset.name)
+      : new URL(`${this.publicPath}/${asset.name}`);
 
     url.searchParams.set('date', (+new Date()).toString());
 
