@@ -44,10 +44,10 @@ class HTML {
       const html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
+    <link href="${this.t({ name: 'manifest.json' })}" rel="manifest" />
     ${css.join('\n    ')}
     <meta charset="utf-8" />
     <meta content="width=device-width" name="viewport" />    
-    <meta content="yes" name="apple-mobile-web-app-capable" />
     <title>${compilation.name}</title>
   </head>
   <body> 
@@ -69,8 +69,6 @@ class HTML {
     const url: URL = /^[^:\/\/]+:\/\//.test(asset.name)
       ? new URL(asset.name)
       : new URL(`${this.publicPath}/${asset.name}`);
-
-    url.searchParams.set('date', (+new Date()).toString());
 
     return url.toString();
   }

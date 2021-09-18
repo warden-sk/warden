@@ -12,7 +12,7 @@ class CSS {
     compiler.hooks.emit.tap(CSS.name, compilation => {
       const css = [...FILES].filter(([filePath]) => /\.css$/.test(filePath)).map(([, code]) => code);
 
-      compilation.emitAsset('index.css', new ConcatSource(...css));
+      compilation.emitAsset(`${+new Date()}.css`, new ConcatSource(...css));
     });
   }
 }
