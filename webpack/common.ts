@@ -37,7 +37,7 @@ function common({
     name,
     output: {
       clean: true,
-      filename: 'index.js',
+      filename: `${+new Date()}.js`,
       globalObject: 'this',
       libraryTarget: 'umd',
       path: path.resolve('./public'),
