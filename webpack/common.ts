@@ -20,6 +20,7 @@ function common({
 }): webpack.Configuration {
   return {
     entry: './private/index.tsx',
+    mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
     module: {
       rules: [
         {
