@@ -13,13 +13,9 @@ function compiler(this: webpack.LoaderContext<{}>, code: string): string {
 
   FILES.set(filePath, code);
 
-  if (/\.css$/.test(filePath)) {
-    return '';
-  }
+  if (/\.css$/.test(filePath)) return '';
 
-  if (/\.tsx?$/.test(filePath)) {
-    ({ code } = babel.transformSync(code, { filename: filePath }));
-  }
+  if (/\.tsx?$/.test(filePath)) ({ code } = babel.transformSync(code, { filename: filePath }));
 
   return code;
 }

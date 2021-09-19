@@ -58,6 +58,8 @@ class HTML {
 `;
 
       compilation.emitAsset('index.html', new RawSource(html));
+
+      console.log('\u0007');
     });
   }
 
