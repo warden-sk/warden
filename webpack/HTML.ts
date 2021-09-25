@@ -44,8 +44,6 @@ class HTML {
       const html = `<!DOCTYPE html>
 <html lang="sk">
   <head>
-    <link href="${this.t({ name: 'apple-touch-icon.png' })}" rel="apple-touch-icon" />
-    <link href="${this.t({ name: 'manifest.json' })}" rel="manifest" />
     ${css.join('\n    ')}
     <meta charset="utf-8" />
     <meta content="width=device-width" name="viewport" />
