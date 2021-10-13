@@ -51,7 +51,6 @@ class HTML {
   </head>
   <body> 
     ${this.htmlTemplate(compilation)}
-    <script>window.compiledAt = ${+new Date()};</script>
     ${js.join('\n    ')}
   </body>
 </html>
