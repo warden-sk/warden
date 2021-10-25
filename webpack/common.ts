@@ -39,6 +39,7 @@ function common({
       clean: true,
       filename: 'index.js',
       globalObject: 'this',
+      hashFunction: 'xxhash64',
       libraryTarget: 'umd',
       path: path.resolve('./public'),
       publicPath,
