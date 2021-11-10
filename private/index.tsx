@@ -6,7 +6,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ReactDOMServer from 'react-dom/server';
 
-if (typeof window !== 'undefined')
-  window.addEventListener('DOMContentLoaded', () => ReactDOM.hydrate(<div />, document.getElementById('index')));
+if (typeof window !== 'undefined') ReactDOM.hydrate(<div />, document.getElementById('index'));
 
 export default ReactDOMServer.renderToString(<div />);
