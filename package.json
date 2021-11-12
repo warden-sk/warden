@@ -9,8 +9,8 @@
     "@types/warden-sk__design": "github:warden-sk/types-design",
     "@typescript-eslint/eslint-plugin": "^5.3.1",
     "@typescript-eslint/parser": "^5.3.1",
-    "@warden-sk/babel-plugin": "^1.8.0",
-    "@warden-sk/design": "^1.7.0",
+    "@warden-sk/babel-plugin": "^1.10.0",
+    "@warden-sk/design": "^1.10.0",
     "@warden-sk/eslint-config": "github:warden-sk/eslint-config",
     "eslint": "^8.2.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -18,7 +18,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "typescript": "^4.4.4",
-    "webpack": "^5.63.0"
+    "webpack": "^5.64.0"
   },
   "name": "@warden-sk/warden",
   "repository": {
