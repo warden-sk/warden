@@ -12,11 +12,13 @@ function common({
   htmlTemplate,
   name,
   publicPath,
+  target = 'web',
 }: {
   assets?: string[];
   htmlTemplate?: (compilation: webpack.Compilation) => string;
   name: string;
   publicPath: string;
+  target?: string;
 }): webpack.Configuration {
   return {
     entry: './private/index.tsx',
@@ -36,7 +38,6 @@ function common({
     },
     name,
     output: {
-      clean: true,
       filename: 'index.js',
       globalObject: 'this',
       hashFunction: 'xxhash64',
@@ -48,6 +49,7 @@ function common({
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
+    target,
   };
 }
 
