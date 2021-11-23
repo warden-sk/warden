@@ -8,9 +8,10 @@ import webpack from 'webpack';
 
 const compiler = webpack(
   common({
-    htmlTemplate: compilation => `<div id="index">${compileReact('index.js', compilation)}</div>`,
+    htmlTemplate: compilation => compileReact('index.js', compilation),
+    inputFile: 'index.tsx',
     name: 'warden',
-    publicPath: 'https://warden.sk',
+    publicPath: process.env.NODE_ENV === 'production' ? 'https://warden.sk' : undefined,
   })
 );
 

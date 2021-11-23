@@ -20,7 +20,7 @@ function compileReact(assetName: string, compilation: webpack.Compilation): stri
     return context.module.exports.default;
   }
 
-  throw new Error('Asset does not exist.');
+  throw new Error(`Asset "${assetName}" does not exist.`);
 }
 
 export default compileReact;

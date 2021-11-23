@@ -7,21 +7,18 @@ import HTML from './HTML';
 import path from 'path';
 import webpack from 'webpack';
 
-function common({
-  assets,
-  htmlTemplate,
-  name,
-  publicPath,
-  target = 'web',
-}: {
-  assets?: string[];
-  htmlTemplate?: (compilation: webpack.Compilation) => string;
+interface Common {
+  assets?: HTML['assets'];
+  htmlTemplate?: HTML['htmlTemplate'];
+  inputFile: string;
   name: string;
-  publicPath: string;
+  publicPath?: HTML['publicPath'];
   target?: string;
-}): webpack.Configuration {
+}
+
+function common({ assets, htmlTemplate, inputFile, name, publicPath, target = 'web' }: Common): webpack.Configuration {
   return {
-    entry: './private/index.tsx',
+    entry: path.resolve('./private', inputFile),
     mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
     module: {
       rules: [
@@ -40,7 +37,6 @@ function common({
     output: {
       filename: 'index.js',
       globalObject: 'this',
-      hashFunction: 'xxhash64',
       libraryTarget: 'umd',
       path: path.resolve('./public'),
       publicPath,

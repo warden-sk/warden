@@ -6,14 +6,10 @@
 import * as babel from '@babel/core';
 import webpack from 'webpack';
 
-export const FILES = new Map<string, string>();
-
 function compiler(this: webpack.LoaderContext<{}>, code: string): string {
   const filePath = this.resourcePath;
 
-  FILES.set(filePath, code);
-
-  if (/\.css$/.test(filePath)) return '';
+  if (/\.css$/.test(filePath)) return `export default ${JSON.stringify(code)};`;
 
   if (/\.tsx?$/.test(filePath)) ({ code } = babel.transformSync(code, { filename: filePath }));
 

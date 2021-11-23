@@ -2,7 +2,6 @@
  * Copyright 2021 Marek Kobida
  */
 
-import { FILES } from './compiler';
 import webpack from 'webpack';
 
 class CSS {
@@ -10,7 +9,16 @@ class CSS {
     const { ConcatSource } = webpack.sources;
 
     compiler.hooks.emit.tap(CSS.name, compilation => {
-      const css = [...FILES].filter(([filePath]) => /\.css$/.test(filePath)).map(([, code]) => code);
+      const css = [...compilation.modules]
+        .filter(module => /\.css$/.test(module.identifier()))
+        .map(
+          module =>
+            module
+              .originalSource()
+              ?.buffer()
+              .toString()
+              .replace(/export default (".*");/, (_, __) => JSON.parse(__)) ?? ''
+        );
 
       compilation.emitAsset('index.css', new ConcatSource(...css));
     });
