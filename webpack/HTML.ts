@@ -45,7 +45,7 @@ class HTML {
       const js = this.assetsToHTML(assets, /\.js$/, asset => `<script src="${this.t(asset)}"></script>`);
 
       const html = `<!DOCTYPE html>
-<html lang="sk">
+<html>
   <head>
     ${css.join('\n    ')}
     <meta charset="utf-8" />

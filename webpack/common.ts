@@ -16,7 +16,7 @@ interface Common {
   target?: string;
 }
 
-function common({ assets, htmlTemplate, inputFile, name, publicPath, target = 'web' }: Common): webpack.Configuration {
+function common({ assets, htmlTemplate, inputFile, name, publicPath, target }: Common): webpack.Configuration {
   return {
     entry: path.resolve('./private', inputFile),
     mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
@@ -27,7 +27,7 @@ function common({ assets, htmlTemplate, inputFile, name, publicPath, target = 'w
           test: /\.css$/,
         },
         {
-          exclude: /node_modules/,
+          // exclude: /node_modules/,
           loader: path.resolve(__dirname, './compiler.ts'),
           test: /\.tsx?$/,
         },

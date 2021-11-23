@@ -17,7 +17,7 @@ class CSS {
               .originalSource()
               ?.buffer()
               .toString()
-              .replace(/export default (".*");/, (_, __) => JSON.parse(__)) ?? ''
+              .replace(/export default (".+");/, (_, __) => JSON.parse(__)) ?? ''
         );
 
       compilation.emitAsset('index.css', new ConcatSource(...css));
