@@ -5,7 +5,7 @@
 import vm from 'vm';
 import webpack from 'webpack';
 
-function compileReact(assetName: string, compilation: webpack.Compilation): string {
+function compileReact(compilation: webpack.Compilation, assetName = 'index.js'): string {
   const asset = compilation.getAsset(assetName);
 
   if (asset) {

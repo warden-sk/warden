@@ -8,8 +8,7 @@ import webpack from 'webpack';
 
 const compiler = webpack(
   common({
-    htmlTemplate: compilation => compileReact('index.js', compilation),
-    inputFile: 'index.tsx',
+    htmlTemplate: compileReact,
     name: 'warden',
     publicPath: process.env.NODE_ENV === 'production' ? 'https://warden.sk' : undefined,
   })
