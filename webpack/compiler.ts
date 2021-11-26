@@ -9,9 +9,9 @@ import webpack from 'webpack';
 function compiler(this: webpack.LoaderContext<{}>, code: string): string {
   const filePath = this.resourcePath;
 
-  if (/\.css$/.test(filePath)) return `export default ${JSON.stringify(code)};`;
+  /\.css$/.test(filePath) && (code = `export default ${JSON.stringify(code)};`);
 
-  if (/\.tsx?$/.test(filePath)) ({ code } = babel.transformSync(code, { filename: filePath }));
+  /\.tsx?$/.test(filePath) && ({ code } = babel.transformSync(code, { filename: filePath }));
 
   return code;
 }

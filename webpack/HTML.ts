@@ -5,17 +5,8 @@
 import path from 'path';
 import webpack from 'webpack';
 
-interface EncodedAsset {
-  name: string;
-}
-
-interface EncodedAssetHTMLTemplate {
-  (encodedAsset: EncodedAsset): string;
-}
-
 class HTML {
   assets: string[];
-  encodedAssets: EncodedAsset[];
   htmlTemplate: (compilation: webpack.Compilation) => string;
   publicPath?: string;
 
@@ -29,8 +20,6 @@ class HTML {
     publicPath?: HTML['publicPath'];
   }) {
     this.assets = assets;
-    // from ['a'] to { name: 'a' }
-    this.encodedAssets = assets.map(name => ({ name }));
     this.htmlTemplate = htmlTemplate;
     this.publicPath = publicPath;
   }
@@ -39,7 +28,8 @@ class HTML {
     const { RawSource } = webpack.sources;
 
     compiler.hooks.emit.tap(HTML.name, compilation => {
-      const assets = this.encodedAssets.concat(compilation.getAssets());
+      //                                                       | from { name: 'a' } to ['a']
+      const assets = this.assets.concat(compilation.getAssets().map(({ name }) => name));
 
       const css = this.assetsToHTML(assets, /\.css$/, asset => `<link href="${this.t(asset)}" rel="stylesheet" />`);
       const js = this.assetsToHTML(assets, /\.js$/, asset => `<script src="${this.t(asset)}"></script>`);
@@ -65,12 +55,14 @@ class HTML {
     });
   }
 
-  assetsToHTML(assets: EncodedAsset[], pattern: RegExp, template: EncodedAssetHTMLTemplate): string[] {
-    return assets.filter(({ name }) => pattern.test(name)).map(template);
+  assetsToHTML(assets: string[], pattern: RegExp, template: (asset: string) => string): string[] {
+    return assets.filter(asset => pattern.test(asset)).map(template);
   }
 
-  t(asset: EncodedAsset): string {
-    const url: URL = new URL(asset.name, this.publicPath ?? `file://${path.resolve('./public', asset.name)}`);
+  t(asset: string): string {
+    const $ = this.publicPath ?? `file://${path.resolve('./public')}`;
+
+    const url = /^[^:\/\/]+:\/\//.test(asset) ? new URL(asset) : new URL(`${$}/${asset}`);
 
     url.searchParams.set('date', (+new Date()).toString());
 
