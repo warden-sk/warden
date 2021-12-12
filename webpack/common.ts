@@ -10,34 +10,28 @@ import webpack from 'webpack';
 interface Common {
   assets?: HTML['assets'];
   htmlTemplate?: HTML['htmlTemplate'];
-  inputPath?: string;
-  name?: string;
+  inputFilePath?: string;
+  name: string;
   outputFileName?: string;
   publicPath?: HTML['publicPath'];
-  target?: string;
 }
 
 function common({
-  assets,
-  htmlTemplate,
-  inputPath = './private/index.tsx',
+  assets = [],
+  htmlTemplate = () => '',
+  inputFilePath = './private/index.tsx',
   name,
   outputFileName = 'index.js',
-  publicPath,
-  target,
+  publicPath = '',
 }: Common): webpack.Configuration {
   return {
-    entry: inputPath,
+    entry: inputFilePath,
     mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
     module: {
       rules: [
         {
           loader: path.resolve(__dirname, './compiler.ts'),
-          test: /\.css$/,
-        },
-        {
-          loader: path.resolve(__dirname, './compiler.ts'),
-          test: /\.tsx?$/,
+          test: /\.(?:css|tsx?)$/,
         },
       ],
     },
@@ -47,13 +41,11 @@ function common({
       globalObject: 'this',
       libraryTarget: 'umd',
       path: path.resolve('./public'),
-      publicPath,
     },
-    plugins: [new CSS(), new HTML({ assets, htmlTemplate, publicPath })],
+    plugins: [new CSS(), new HTML(assets, htmlTemplate, publicPath)],
     resolve: {
       extensions: ['.js', '.json', '.ts', '.tsx'],
     },
-    target,
   };
 }
 

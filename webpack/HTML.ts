@@ -8,17 +8,9 @@ import webpack from 'webpack';
 class HTML {
   assets: string[];
   htmlTemplate: (compilation: webpack.Compilation) => string;
-  publicPath?: string;
+  publicPath: string;
 
-  constructor({
-    assets = [],
-    htmlTemplate = () => '',
-    publicPath,
-  }: {
-    assets?: HTML['assets'];
-    htmlTemplate?: HTML['htmlTemplate'];
-    publicPath?: HTML['publicPath'];
-  }) {
+  constructor(assets: HTML['assets'], htmlTemplate: HTML['htmlTemplate'], publicPath: HTML['publicPath']) {
     this.assets = assets;
     this.htmlTemplate = htmlTemplate;
     this.publicPath = publicPath;
@@ -50,8 +42,6 @@ class HTML {
 `;
 
       compilation.emitAsset('index.html', new RawSource(html));
-
-      console.log('\u0007');
     });
   }
 
@@ -60,9 +50,9 @@ class HTML {
   }
 
   t(asset: string): string {
-    const $ = this.publicPath ?? `file://${path.resolve('./public')}`;
+    const publicPath = this.publicPath ? this.publicPath : `file://${path.resolve('./public')}`;
 
-    const url = /^[^:\/\/]+:\/\//.test(asset) ? new URL(asset) : new URL(`${$}/${asset}`);
+    const url = /^[^:\/\/]+:\/\//.test(asset) ? new URL(asset) : new URL(`${publicPath}/${asset}`);
 
     url.searchParams.set('date', (+new Date()).toString());
 
