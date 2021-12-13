@@ -23,8 +23,8 @@ class HTML {
       //                                                       | from { name: 'a' } to ['a']
       const assets = this.assets.concat(compilation.getAssets().map(({ name }) => name));
 
-      const css = this.assetsToHTML(assets, /\.css$/, asset => `<link href="${this.t(asset)}" rel="stylesheet" />`);
-      const js = this.assetsToHTML(assets, /\.js$/, asset => `<script src="${this.t(asset)}"></script>`);
+      const css = this.assetsToHTML(assets, /\.css$/, url => `<link href="${url}" rel="stylesheet" />`);
+      const js = this.assetsToHTML(assets, /\.js$/, url => `<script src="${url}"></script>`);
 
       const html = `<!DOCTYPE html>
 <html>
@@ -45,11 +45,7 @@ class HTML {
     });
   }
 
-  assetsToHTML(assets: string[], pattern: RegExp, template: (asset: string) => string): string[] {
-    return assets.filter(asset => pattern.test(asset)).map(template);
-  }
-
-  t(asset: string): string {
+  assetToURL = (asset: string): string => {
     const publicPath = this.publicPath ? this.publicPath : `file://${path.resolve('./public')}`;
 
     const url = /^[^:\/\/]+:\/\//.test(asset) ? new URL(asset) : new URL(`${publicPath}/${asset}`);
@@ -57,6 +53,13 @@ class HTML {
     url.searchParams.set('date', (+new Date()).toString());
 
     return url.toString();
+  };
+
+  assetsToHTML(assets: string[], pattern: RegExp, template: (asset: string) => string): string[] {
+    return assets
+      .filter(asset => pattern.test(asset))
+      .map(this.assetToURL)
+      .map(template);
   }
 }
 
