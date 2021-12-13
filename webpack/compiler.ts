@@ -11,7 +11,11 @@ function compiler(this: webpack.LoaderContext<{}>, code: string): string {
 
   /\.css$/.test(filePath) && (code = `export default ${JSON.stringify(code)};`);
 
-  /\.tsx?$/.test(filePath) && ({ code } = babel.transformSync(code, { filename: filePath }));
+  /\.tsx?$/.test(filePath) &&
+    ({ code } = babel.transformSync(code, {
+      plugins: ['@warden-sk'],
+      presets: ['@babel/preset-react', '@babel/preset-typescript'],
+    }));
 
   return code;
 }
