@@ -8,7 +8,7 @@ import webpack from 'webpack';
 class HTML {
   assets: string[];
   htmlTemplate: (compilation: webpack.Compilation) => string;
-  publicPath: string;
+  publicPath: string | 0 | false | null | undefined;
 
   constructor(assets: HTML['assets'], htmlTemplate: HTML['htmlTemplate'], publicPath: HTML['publicPath']) {
     this.assets = assets;

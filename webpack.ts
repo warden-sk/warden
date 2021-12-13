@@ -10,7 +10,7 @@ const compiler = webpack(
   common({
     htmlTemplate: compileReact,
     name: 'warden',
-    publicPath: process.env.NODE_ENV === 'production' ? 'https://warden.sk' : undefined,
+    publicPath: process.env.NODE_ENV === 'production' && 'https://warden.sk',
   })
 );
 
