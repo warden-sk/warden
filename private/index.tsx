@@ -17,7 +17,7 @@ function Anchor() {
   );
 }
 
-if (typeof window !== 'undefined') ReactDOM.hydrate(<Anchor />, document.getElementById(CONTAINER_ID));
+typeof window !== 'undefined' && ReactDOM.hydrate(<Anchor />, document.getElementById(CONTAINER_ID));
 
 export default (
   <div id={CONTAINER_ID}>
