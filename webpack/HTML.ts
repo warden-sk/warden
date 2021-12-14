@@ -45,7 +45,7 @@ class HTML {
     });
   }
 
-  assetToURL = (asset: string): string => {
+  assetToUrl = (asset: string): string => {
     const publicPath = this.publicPath ? this.publicPath : `file://${path.resolve('./public')}`;
 
     const url = /^[^:\/\/]+:\/\//.test(asset) ? new URL(asset) : new URL(`${publicPath}/${asset}`);
@@ -58,7 +58,7 @@ class HTML {
   assetsToHTML(assets: string[], pattern: RegExp, template: (asset: string) => string): string[] {
     return assets
       .filter(asset => pattern.test(asset))
-      .map(this.assetToURL)
+      .map(this.assetToUrl)
       .map(template);
   }
 }
