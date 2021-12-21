@@ -7,12 +7,12 @@
     "@warden-sk/design": "^1.10.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.1",
+    "@types/node": "^17.0.2",
     "@types/react": "^17.0.37",
     "@types/react-dom": "^17.0.11",
     "@types/warden-sk__design": "github:warden-sk/types-design",
-    "@typescript-eslint/eslint-plugin": "^5.7.0",
-    "@typescript-eslint/parser": "^5.7.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.0",
+    "@typescript-eslint/parser": "^5.8.0",
     "@warden-sk/eslint-config": "github:warden-sk/eslint-config",
     "eslint": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
