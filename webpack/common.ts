@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Marek Kobida
+ * Copyright 2022 Marek Kobida
  */
 
 import CSS from './CSS';
