@@ -2,6 +2,7 @@
  * Copyright 2022 Marek Kobida
  */
 
+// @ts-ignore
 import * as babel from '@babel/core';
 import webpack from 'webpack';
 
