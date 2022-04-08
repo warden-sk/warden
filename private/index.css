@@ -2,7 +2,3 @@ body {
   background-color: hsl(0, 0%, 5%);
   color: hsl(0, 0%, 95%);
 }
-.discord {
-  color: hsl(0, 0%, 50%);
-  text-decoration: underline;
-}

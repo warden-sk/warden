@@ -12,7 +12,7 @@ const CONTAINER_ID = 'index';
 function Discord() {
   return (
     <a display="block" href="https://discord.com/invite/zH8GKfErWb" p="4" textAlign="center">
-      Pripojiť k sieti <span className="discord">Discord</span>
+      Pripojiť k sieti Discord
     </a>
   );
 }
